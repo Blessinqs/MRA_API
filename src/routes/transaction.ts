@@ -126,23 +126,22 @@ const router = Router();
  *                 taxRateId: "A"
  *                 isProduct: false
  *     responses:
- *       201:
+ *       200:
  *         description: Invoice created successfully
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 status:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 validationURL:
  *                   type: string
- *                   example: "success"
- *                 invoiceId:
+ *                   example: "https://eservices.mra.mw/doc/v/?vc=96251651602348&c=e002d53c362b41eca08df3b0f758c92a"
+ *                 offlineSignature:
  *                   type: string
- *                   example: "INV-2025-0004"
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- *                   example: "2025-06-12T14:30:00Z"
+ *                   example: null
  *       400:
  *         description: Invalid request data
  *         content:
