@@ -16,7 +16,6 @@ const router = Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/InvoiceRequest'
  *           example:
  *             buyerName: ""
  *             buyerTIN: ""
