@@ -50,7 +50,6 @@ const router = Router();
 //router.post('/vat5-certificate');
 
 /**
- * @swagger
  * /api/validation/tin:
  *   post:
  *     tags: [Validation ]
@@ -103,7 +102,7 @@ const router = Router();
  *         description: Server error
  */
 
-router.post('/tin', tinValidation);
+//router.post('/tin', tinValidation);
 
 
 
