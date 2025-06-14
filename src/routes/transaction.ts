@@ -3,14 +3,13 @@ import { createOfflineTransaction, createTransaction, getOfflineTransactions, ge
 import { verifyRestApi } from '../middleware/tokenVerifier';
 
 const router = Router();
-
-/**
+ /**
  * @swagger
  * /api/transaction:
  *   post:
- *     tags: [Invoice]
- *     summary: Create a new invoice online
- *     description: Submit a complete tax invoice with header, line items, and summary
+ *     tags: [Invoices]
+ *     summary: Create a new invoice
+ *     description: Creates a new invoice with main details and line items
  *     requestBody:
  *       required: true
  *       content:
@@ -107,10 +106,14 @@ const router = Router();
  *                       example: false
  *                       description: Whether the item is a product (false for services)
  *           example:
- *             count: 1
- *             buyerName: ""
- *             buyerTIN: ""
- *             paymentMethod: ""
+ *             invoiceMain:
+ *               tac: "WRCN-67VB-PQWS-YC4X"
+ *               buyerName: ""
+ *               date: "12-06-2025"
+ *               buyerTIN: ""
+ *               offline: true
+ *               count: "4"
+ *               paymentMethod: "CASH"
  *             invoiceLineItems:
  *               - id: 2
  *                 productCode: "154"
