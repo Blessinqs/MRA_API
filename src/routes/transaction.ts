@@ -16,11 +16,105 @@ const router = Router();
  *       content:
  *         application/json:
  *           schema:
+ *             type: object
+ *             required: [invoiceMain, invoiceLineItems]
+ *             properties:
+ *               invoiceMain:
+ *                 type: object
+ *                 required: [tac, date, offline, count, paymentMethod]
+ *                 properties:
+ *                   tac:
+ *                     type: string
+ *                     example: "WRCN-67VB-PQWS-YC4X"
+ *                     pattern: "^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$"
+ *                     description: Tax Authentication Code (XXXX-XXXX-XXXX-XXXX format)
+ *                   buyerName:
+ *                     type: string
+ *                     example: ""
+ *                     description: Name of the buyer
+ *                   date:
+ *                     type: string
+ *                     example: "12-06-2025"
+ *                     pattern: "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-([0-9]{4})$"
+ *                     description: Invoice date in DD-MM-YYYY format
+ *                   buyerTIN:
+ *                     type: string
+ *                     example: ""
+ *                     description: Buyer's Tax Identification Number
+ *                   offline:
+ *                     type: boolean
+ *                     example: true
+ *                     description: Whether the invoice is offline
+ *                   count:
+ *                     type: string
+ *                     example: "4"
+ *                     description: Invoice count or number
+ *                   paymentMethod:
+ *                     type: string
+ *                     example: "CASH"
+ *                     enum: [CASH, CARD, TRANSFER, OTHER]
+ *                     description: Payment method used
+ *               invoiceLineItems:
+ *                 type: array
+ *                 minItems: 1
+ *                 items:
+ *                   type: object
+ *                   required: [productCode, description, unitPrice, quantity, total, totalVAT, taxRateId, isProduct]
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       example: 2
+ *                       description: Line item ID
+ *                     productCode:
+ *                       type: string
+ *                       example: "154"
+ *                       description: Product or service code
+ *                     description:
+ *                       type: string
+ *                       example: "This was created"
+ *                       description: Description of the item
+ *                     unitPrice:
+ *                       type: number
+ *                       format: float
+ *                       example: 1
+ *                       description: Unit price of the item
+ *                     quantity:
+ *                       type: number
+ *                       format: float
+ *                       example: 1
+ *                       description: Quantity of the item
+ *                     discount:
+ *                       type: number
+ *                       format: float
+ *                       example: 0
+ *                       description: Discount applied to the item
+ *                     total:
+ *                       type: number
+ *                       format: float
+ *                       example: 3000.00
+ *                       description: Total amount for the item
+ *                     totalVAT:
+ *                       type: number
+ *                       format: float
+ *                       example: 2444.27
+ *                       description: Total VAT amount for the item
+ *                     taxRateId:
+ *                       type: string
+ *                       example: "A"
+ *                       description: Tax rate identifier
+ *                     isProduct:
+ *                       type: boolean
+ *                       example: false
+ *                       description: Whether the item is a product (false for services)
  *           example:
- *             buyerName: ""
- *             buyerTIN: ""
- *             count: 1
- *             paymentMethod: ""
+ *             invoiceMain:
+ *               tac: "WRCN-67VB-PQWS-YC4X"
+ *               buyerName: ""
+ *               date: "12-06-2025"
+ *               buyerTIN: ""
+ *               offline: true
+ *               count: "4"
+ *               paymentMethod: "CASH"
  *             invoiceLineItems:
  *               - id: 2
  *                 productCode: "154"
@@ -38,7 +132,20 @@ const router = Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/InvoiceResponse'
+ *               type: object
+ *                properties:
+ *                   remark:
+ *                     type: string
+ *                     example: "Processed Successfully"
+ *                     description: Description of the item
+ *                   offlineSignature:
+ *                     type: string
+ *                     example: null
+ *                     description: Description of the item
+ *                   validationURL:
+ *                     type: string
+ *                     example: "https://eservices.mra.mw/doc/v/?vc=96251612300229&c=6590539c64da44ed9c1e9d6a4074510b"
+ *                     description: url link 
  *             example:
  *               remark: "Processed Successfully"
  *               offlineSignature: null
