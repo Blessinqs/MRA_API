@@ -3,7 +3,7 @@ import { createOfflineTransaction, createTransaction, getOfflineTransactions, ge
 import { verifyRestApi } from '../middleware/tokenVerifier';
 
 const router = Router();
- /**
+/**
  * @swagger
  * /api/transaction:
  *   post:
@@ -126,33 +126,38 @@ const router = Router();
  *                 taxRateId: "A"
  *                 isProduct: false
  *     responses:
- *       200:
- *         description: Transaction successful
+ *       201:
+ *         description: Invoice created successfully
  *         content:
  *           application/json:
  *             schema:
  *               type: object
- *                properties:
- *                   remark:
- *                     type: string
- *                     example: "Processed Successfully"
- *                     description: Description of the item
- *                   offlineSignature:
- *                     type: string
- *                     example: null
- *                     description: Description of the item
- *                   validationURL:
- *                     type: string
- *                     example: "https://eservices.mra.mw/doc/v/?vc=96251612300229&c=6590539c64da44ed9c1e9d6a4074510b"
- *                     description: url link 
- *             example:
- *               remark: "Processed Successfully"
- *               offlineSignature: null
- *               validationURL: "https://eservices.mra.mw/doc/v/?vc=96251612300229&c=6590539c64da44ed9c1e9d6a4074510b"
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "success"
+ *                 invoiceId:
+ *                   type: string
+ *                   example: "INV-2025-0004"
+ *                 timestamp:
+ *                   type: string
+ *                   format: date-time
+ *                   example: "2025-06-12T14:30:00Z"
  *       400:
  *         description: Invalid request data
- *       401:
- *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "error"
+ *                 message:
+ *                   type: string
+ *                   example: "Invalid date format"
+ *       500:
+ *         description: Server error
  */
 
 router.post('/', createTransaction);
