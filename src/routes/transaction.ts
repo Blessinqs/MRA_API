@@ -106,26 +106,6 @@ const router = Router();
  *                       type: boolean
  *                       example: false
  *                       description: Whether the item is a product (false for services)
- *           example:
- *             invoiceMain:
- *               tac: "WRCN-67VB-PQWS-YC4X"
- *               buyerName: ""
- *               date: "12-06-2025"
- *               buyerTIN: ""
- *               offline: true
- *               count: "4"
- *               paymentMethod: "CASH"
- *             invoiceLineItems:
- *               - id: 2
- *                 productCode: "154"
- *                 description: "This was created"
- *                 unitPrice: 1
- *                 quantity: 1
- *                 discount: 0
- *                 total: 3000.00
- *                 totalVAT: 2444.27
- *                 taxRateId: "A"
- *                 isProduct: false
  *     responses:
  *       200:
  *         description: Transaction successful
