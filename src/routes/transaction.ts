@@ -106,6 +106,22 @@ const router = Router();
  *                       type: boolean
  *                       example: false
  *                       description: Whether the item is a product (false for services)
+ *           example:
+ *             count: 1
+ *             buyerName: ""
+ *             buyerTIN: ""
+ *             paymentMethod: ""
+ *             invoiceLineItems:
+ *               - id: 2
+ *                 productCode: "154"
+ *                 description: "This was created"
+ *                 unitPrice: 1
+ *                 quantity: 1
+ *                 discount: 0
+ *                 total: 3000.00
+ *                 totalVAT: 2444.27
+ *                 taxRateId: "A"
+ *                 isProduct: false
  *     responses:
  *       200:
  *         description: Transaction successful
