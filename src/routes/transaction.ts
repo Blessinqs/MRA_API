@@ -116,16 +116,16 @@ const router = Router();
  *               count: "4"
  *               paymentMethod: "CASH"
  *             invoiceLineItems:
- *               - id: 2
- *                 productCode: "154"
- *                 description: "This was created"
- *                 unitPrice: 1
- *                 quantity: 1
- *                 discount: 0
- *                 total: 3000.00
- *                 totalVAT: 2444.27
- *                 taxRateId: "A"
- *                 isProduct: false
+ *               id: 2
+ *               productCode: "154"
+ *               description: "This was created"
+ *               unitPrice: 1
+ *               quantity: 1
+ *               discount: 0
+ *               total: 3000.00
+ *               totalVAT: 2444.27
+ *               taxRateId: "A"
+ *               isProduct: false
  *     responses:
  *       200:
  *         description: Transaction successful
