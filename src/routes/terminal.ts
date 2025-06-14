@@ -17,6 +17,14 @@ const router = Router();
  *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/TerminalRequest'
+ *           example:
+ *             tac: "4U43-RV5F-5SIJ-9KXQ"
+ *             osName: "Microsoft Windows 11 Pro"
+ *             osVersion: "10.0.2266"
+ *             osBuild: "Multiprocessor Free"
+ *             macAddress: "00:15:5d:61:59:38"
+ *             productID: "00330-50000-00000-AAOEM"
+ *             productVersion: "10.0.2266.5189"
  *     responses:
  *       200:
  *         description: Terminal activated successfully
