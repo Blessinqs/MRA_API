@@ -53,7 +53,6 @@ const router = Router();
 router.post('/', createTransaction);
 
 /**
- * @swagger
  * /api/transaction/offline:
  *   post:
  *     tags: [Invoice]
@@ -99,7 +98,7 @@ router.post('/', createTransaction);
  *         description: Unauthorized
  */
 
-router.post('/offline', createOfflineTransaction);
+//router.post('/offline', createOfflineTransaction);
 
 /**
  *
