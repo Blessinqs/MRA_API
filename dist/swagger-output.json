@@ -1,0 +1,82 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {},
+  "definitions": {
+    "openapi": {
+      "type": "string",
+      "example": "3.0.0"
+    },
+    "info": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "API Documentation"
+        },
+        "version": {
+          "type": "string",
+          "example": "1.0.0"
+        },
+        "description": {
+          "type": "string",
+          "example": "API documentation for MRA application"
+        },
+        "license": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "Licensed Under MIT"
+            },
+            "url": {
+              "type": "string",
+              "example": "https://spdx.org/licenses/MIT.html"
+            }
+          }
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "JSONPlaceholder"
+            },
+            "url": {
+              "type": "string",
+              "example": "https://jsonplaceholder.typicode.com"
+            }
+          }
+        }
+      }
+    },
+    "servers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "http://localhost:4000"
+          },
+          "description": {
+            "type": "string",
+            "example": "RetailMax-MRA Server"
+          }
+        }
+      }
+    }
+  },
+  "apis": [
+    "./src/routes/*.ts"
+  ]
+}
