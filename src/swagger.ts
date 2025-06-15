@@ -23,7 +23,7 @@ const options: swaggerJsdoc.Options = {
     },
     servers: [
     {
-      url: `http://localhost:${process.env.PORT}`,
+      url: `https://mra-api.onrender.com`,
       description: 'RetailMax-MRA Server',
     },
     ],
